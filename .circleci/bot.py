@@ -64,9 +64,9 @@ async def on_ready():
     mfbot = mineflayer.createBot({
         'host': '0b0t.org',
         #'port': 25565,
-        'username': "theiceslimelord@outlook.com",
-        'password': 'Smartcat13',
-        'version': '1.12.2',
+        'username': "username",
+        'password': 'password',
+        'version': 'version',
         'auth': 'microsoft'
         })
     mfbot.loadPlugin(pathfinder.pathfinder)
@@ -104,4 +104,4 @@ async def on_ready():
                 sendlist.append(discord.Embed(title=sender,description=msg, color=colourlist[randint(0,4)]))
 
 
-dcbot.run("OTU2OTg3ODk5OTI3MjAzODYw.Yj4Obw.rEPMNSswI2VcbLmxhcqZLiNgQr0")
+dcbot.run("")
