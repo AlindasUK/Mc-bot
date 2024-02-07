@@ -24,8 +24,8 @@ kekvar = False
 @tasks.loop(seconds=0.7)
 async def senditall():
     print("loop is called")
-    channel = dcbot.get_channel(948878901738864640)
-    channel2 = dcbot.get_channel(957322904670961684)
+    channel = dcbot.get_channel(channelid)
+    channel2 = dcbot.get_channel(channelid)
     for x in sendlist:
         print("tries to send embed")
         await channel.send(embed=x)
@@ -34,10 +34,10 @@ async def senditall():
 
 @dcbot.event
 async def on_message(message):
-    if (str(message.channel.id) == "948878901738864640")and(message.author.id != 956987899927203860):
+    if (str(message.channel.id) == "channelid")and(message.author.id != authorid):
         if "mfbot" in globals():
             mfbot.chat(f"[{message.author.name} > {message.content}]")
-    elif (str(message.channel.id) == "957322904670961684")and(message.author.id != 956987899927203860):
+    elif (str(message.channel.id) == "channelid")and(message.author.id != authorid):
         if "mfbot" in globals():
             mfbot.chat(f"[{message.author.name} > {message.content}]")
 #on ready
@@ -45,7 +45,7 @@ async def on_message(message):
 async def on_ready():
     senditall.start()
 
-    channel = dcbot.get_channel(948878901738864640)
+    channel = dcbot.get_channel()
 
     global mineflayer
     global pathfinder
@@ -62,7 +62,7 @@ async def on_ready():
     
 
     mfbot = mineflayer.createBot({
-        'host': '0b0t.org',
+        'host': 'serverip',
         #'port': 25565,
         'username': "username",
         'password': 'password',
@@ -97,7 +97,7 @@ async def on_ready():
             #adds the message to log to prevent duplicates
             msglog[str(int(time.time()/10)) + str(message)] = True
             
-            if (sender != "alinalt") and (sender != "Server"):
+            if (sender != "botname") and (sender != "Server"):
                 msg = f"{message} \n{displaytime}"
 
                 print("tries to append sendlist")
